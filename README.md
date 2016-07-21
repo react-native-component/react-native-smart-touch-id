@@ -20,6 +20,17 @@ or
 npm install @react-native-component/react-native-smart-touch-id --save
 ```
 
+## Installation (iOS)
+
+* Drag RCTTouchId.xcodeproj to your project on Xcode.
+
+* Click on your main project file (the one that represents the .xcodeproj) select Build Phases and drag libRCTTouchId.a from the Products folder inside the RCTTouchId.xcodeproj.
+
+* Look for Header Search Paths and make sure it contains $(SRCROOT)/../../../react-native/React as recursive.
+
+* If you want to install scope package, Look for Header Search Paths and make sure it contains $(SRCROOT)/../../../../react-native/React as recursive.
+
+
 ```js
 
 export default class TouchIdTest extends Component {
