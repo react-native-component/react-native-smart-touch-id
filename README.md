@@ -80,7 +80,8 @@ export default class TouchIdTest extends Component {
 ## Errors
 
 There are various reasons why authenticating with Touch ID may fail.
-Whenever calling Touch ID authentication fails, `TouchId.verify` will return an error code
+Whenever calling Touch ID authentication fails, `TouchId.verify` will return an error code.
+
 More information on errors can be found in [Apple's Documentation][2].
 
 
