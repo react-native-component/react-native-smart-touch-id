@@ -1,0 +1,27 @@
+{
+  "name": "@react-native-component/react-native-smart-touch-id",
+  "version": "1.0.0",
+  "description": "Smart authentication with the native Touch ID popup for React Native app",
+  "main": "TouchId.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/react-native-component/react-native-smart-touch-id.git"
+  },
+  "keywords": [
+    "react-native",
+    "smart",
+    "touch",
+    "id",
+    "touch-id",
+    "component"
+  ],
+  "author": "HISAME SHIZUMARU",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/react-native-component/react-native-smart-touch-id/issues"
+  },
+  "homepage": "https://github.com/react-native-component/react-native-smart-touch-id#readme"
+}
