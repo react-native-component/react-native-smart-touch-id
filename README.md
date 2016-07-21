@@ -47,7 +47,7 @@ export default class TouchIdTest extends Component {
     let description = 'Verify the existing mobile phone fingerprint using the home key'
     //let title       //fallback button title will be default as 'Enter Password'(localized)
     //let title = ""  //fallback button will be hidden
-    let title = "Verify Password"   //fallback button title will be default as 'Verify Password'(unlocalized)
+    let title = "Verify Password"   //fallback button title will be 'Verify Password'(unlocalized)
     TouchId.verify( description, title, (error) => {
       if (error) {
         if(error.message == '-3') {
