@@ -32,14 +32,38 @@ npm install @react-native-component/react-native-smart-touch-id --save
 
 ```js
 
+import React, {
+  Component
+} from 'react'
+import {
+  View,
+  Text,
+  Alert,
+} from 'react-native'
+
+import TouchId from 'react-native-smart-touch-id'
+import Button from 'react-native-smart-button'
+
 export default class TouchIdTest extends Component {
 
   render() {
     return (
       <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', }}>
-        <Text style={{margin: 20, }} onPress={this._isSupported}>verify whether touchId is supported</Text>
-        <Text style={{margin: 20, }} onPress={this._trggerTouchId}>trigger touch id</Text>
-      </View>
+          <Button
+            touchableType={'blur'}
+            style={{marginVertical: 10, width: 300, justifyContent: 'center', height: 40, backgroundColor: 'red', borderRadius: 3, borderWidth: StyleSheet.hairlineWidth, borderColor: 'red', justifyContent: 'center',}}
+            textStyle={{fontSize: 17,  color: 'white'}}
+            onPress={this._isSupported}>
+            verify if touchId is supported
+          </Button>
+          <Button
+            touchableType={'blur'}
+            style={{marginVertical: 10, width: 300, justifyContent: 'center', height: 40, backgroundColor: 'red', borderRadius: 3, borderWidth: StyleSheet.hairlineWidth, borderColor: 'red', justifyContent: 'center',}}
+            textStyle={{fontSize: 17,  color: 'white'}}
+            onPress={this._trggerTouchId}>
+            trigger touch id
+          </Button>
+        </View>
     )
   }
 
@@ -85,5 +109,5 @@ Whenever calling Touch ID authentication fails, `TouchId.verify` will return an 
 More information on errors can be found in [Apple's Documentation][2].
 
 
-[1]: http://cyqresig.github.io/img/react-native-smart-touch-id-preview-v1.0.0.gif
+[1]: http://cyqresig.github.io/img/react-native-smart-touch-id-preview-v1.0.2.gif
 [2]: https://developer.apple.com/library/prerelease/ios/documentation/LocalAuthentication/Reference/LAContext_Class/index.html#//apple_ref/c/tdef/LAError
