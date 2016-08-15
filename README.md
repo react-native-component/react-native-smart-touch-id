@@ -14,12 +14,6 @@ This component is compatible with React Native 0.25 and newer, only supports iOS
 npm install react-native-smart-touch-id --save
 ```
 
-or
-
-```
-npm install @react-native-component/react-native-smart-touch-id --save
-```
-
 ## Installation (iOS)
 
 * Drag RCTTouchId.xcodeproj to your project on Xcode.
@@ -28,7 +22,8 @@ npm install @react-native-component/react-native-smart-touch-id --save
 
 * Look for Header Search Paths and make sure it contains $(SRCROOT)/../../../react-native/React as recursive.
 
-* If you want to install scope package, Look for Header Search Paths and make sure it contains $(SRCROOT)/../../../../react-native/React as recursive.
+
+## Usage
 
 ```js
 
