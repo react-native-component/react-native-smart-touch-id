@@ -22,6 +22,9 @@ npm install react-native-smart-touch-id --save
 
 * Look for Header Search Paths and make sure it contains $(SRCROOT)/../../../react-native/React as recursive.
 
+## Full Demo
+
+see [ReactNativeComponentDemos][0]
 
 ## Usage
 
@@ -103,6 +106,6 @@ Whenever calling Touch ID authentication fails, `TouchId.verify` will return an 
 
 More information on errors can be found in [Apple's Documentation][2].
 
-
+[0]: https://github.com/cyqresig/ReactNativeComponentDemos
 [1]: http://cyqresig.github.io/img/react-native-smart-touch-id-preview-v1.0.2.gif
 [2]: https://developer.apple.com/library/prerelease/ios/documentation/LocalAuthentication/Reference/LAContext_Class/index.html#//apple_ref/c/tdef/LAError
