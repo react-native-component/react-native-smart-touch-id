@@ -1,5 +1,10 @@
 # react-native-smart-touch-id
 
+[![npm](https://img.shields.io/npm/v/react-native-smart-touch-id.svg)](https://www.npmjs.com/package/react-native-smart-touch-id)
+[![npm](https://img.shields.io/npm/dm/react-native-smart-touch-id.svg)](https://www.npmjs.com/package/react-native-smart-touch-id)
+[![npm](https://img.shields.io/npm/dt/react-native-smart-touch-id.svg)](https://www.npmjs.com/package/react-native-smart-touch-id)
+[![npm](https://img.shields.io/npm/l/react-native-smart-touch-id.svg)](https://github.com/react-native-component/react-native-smart-touch-id/blob/master/LICENSE)
+
 Smart authentication with the native Touch ID popup for React Native app.
 
 This component is compatible with React Native 0.25 and newer, only supports iOS.
