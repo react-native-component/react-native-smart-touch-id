@@ -1,4 +1,4 @@
-#import <React/RCTTouchId.h>
+#import "RCTTouchId.h"
 #import <React/RCTUtils.h>
 #import <LocalAuthentication/LocalAuthentication.h>
 
