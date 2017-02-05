@@ -7,8 +7,6 @@
 
 Smart authentication with the native Touch ID popup for React Native app.
 
-This component is compatible with React Native 0.25 and newer, only supports iOS.
-
 ## Preview
 
 ![react-native-smart-touch-id-preview][1]
@@ -16,8 +14,12 @@ This component is compatible with React Native 0.25 and newer, only supports iOS
 ## Installation
 
 ```
-npm install react-native-smart-touch-id --save
+npm install react-native-smart-touch-id@untilRN0.40 --save
 ```
+
+## Notice
+
+It can only be used until react-native 0.4.0 for ios, if you want to use the latest package, use `npm install react-native-smart-touch-id --save`
 
 ## Installation (iOS)
 
