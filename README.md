@@ -72,35 +72,67 @@ export default class TouchIdTest extends Component {
     )
   }
 
-  _isSupported = () => {
-    TouchId.isSupported( (error) => {
-      if (error) {
-        Alert.alert('TouchId is not supported!')
-      } else {
-        Alert.alert('TouchId is supported!')
-      }
-    })
-  }
+  _//_isSupported = () => {
+   //  TouchId.isSupported( (error) => {
+   //    if (error) {
+   //      Alert.alert('TouchId is not supported!')
+   //    } else {
+   //      Alert.alert('TouchId is supported!')
+   //    }
+   //  })
+   //}
 
-  _trggerTouchId = () => {
-    let description = 'Verify the existing mobile phone fingerprint using the home key'
-    //let title       //fallback button title will be default as 'Enter Password'(localized)
-    //let title = ""  //fallback button will be hidden
-    let title = "Verify Password"   //fallback button title will be 'Verify Password'(unlocalized)
-    TouchId.verify( description, title, (error) => {
-      if (error) {
-        if(error.message == '-3') {
-            //fallback button is pressed
-          Alert.alert('errorCode: ' + error.message + ' verify failed, user wants to ' + title)
-        }
-        else {
-          Alert.alert('errorCode: ' + error.message + ' verify failed')
-        }
-      } else {
-        Alert.alert('verify succeeded')
-      }
-    })
-  }
+   _isSupported = async () => {
+       try {
+           await TouchId.isSupported()
+           Alert.alert('TouchId is supported!')
+       } catch(e) {
+           Alert.alert('TouchId is not supported!')
+       }
+   }
+
+   //_trggerTouchId = () => {
+   //    let description = 'Verify the existing mobile phone fingerprint using the home key'
+   //    //let title       //fallback button title will be default as 'Enter Password'(localized)
+   //    //let title = ""  //fallback button will be hidden
+   //    let title = "Verify Password"   //fallback button title will be 'Verify Password'(unlocalized)
+   //    TouchId.verify(description, title, (error) => {
+   //        if (error) {
+   //            if (error.message == '-3') {
+   //                //fallback button is pressed
+   //                Alert.alert('errorCode: ' + error.message + ' verify failed, user wants to ' + title)
+   //            }
+   //            else {
+   //                Alert.alert('errorCode: ' + error.message + ' verify failed')
+   //            }
+   //        } else {
+   //            Alert.alert('verify succeeded')
+   //        }
+   //    })
+   //}
+
+   _trggerTouchId = async () => {
+       let description = 'Verify the existing mobile phone fingerprint using the home key'
+       //let title       //fallback button title will be default as 'Enter Password'(localized)
+       //let title = ""  //fallback button will be hidden
+       let title = "Verify Password"   //fallback button title will be 'Verify Password'(unlocalized)
+       try {
+           await TouchId.verify({
+               description,
+               title,
+           });
+           //await TouchId.verify("123123123123");
+           Alert.alert('verify succeeded')
+       } catch(e) {
+           if (e.code == '-3') {
+               //fallback button is pressed
+               Alert.alert('errorCode: ' + e.code + ' verify failed, user wants to ' + title)
+           }
+           else {
+               Alert.alert('errorCode: ' + e.code + ' verify failed')
+           }
+       }
+   }
 
 }
 
