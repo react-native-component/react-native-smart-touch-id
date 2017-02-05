@@ -19,6 +19,11 @@ This component is compatible with React Native 0.25 and newer, only supports iOS
 npm install react-native-smart-touch-id --save
 ```
 
+## Notice
+
+It can only be used greater-than-equal react-native 0.4.0 for ios, if you want to use the package less-than react-native 0.4.0, use `npm install react-native-smart-touch-id@untilRN0.40 --save`
+
+
 ## Installation (iOS)
 
 * Drag RCTTouchId.xcodeproj to your project on Xcode.
