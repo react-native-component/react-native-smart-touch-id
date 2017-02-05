@@ -6,45 +6,61 @@
 
 RCT_EXPORT_MODULE(TouchId);
 
-RCT_EXPORT_METHOD(verify:(NSString *)reason
-                  title:(NSString *)title
-                  callback:(RCTResponseSenderBlock)callback)
+RCT_EXPORT_METHOD(verify:(NSDictionary *)options
+                  resolver:(RCTPromiseResolveBlock)resolve
+                  rejecter:(RCTPromiseRejectBlock)reject)
 {
-    LAContext *context = [[LAContext alloc] init];
-    context.localizedFallbackTitle = title;
-    NSError *error;
-    // TouchID is supported
-    if ([context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&error]) {
-        [context evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics
-                localizedReason:reason
-                          reply:^(BOOL success, NSError *error) {
-                              //Authenticate failed
-                              if(error) {
-                                  callback(@[RCTMakeError([NSString stringWithFormat:@"%d", error.code], nil, nil)]);
-                              }
-                              else {
-                                  callback(@[[NSNull null]]);
-                              }
-                          }];
+    NSString *description;
+    NSString *title;
+    
+    if(options != nil) {
+        NSArray *keys = [options allKeys];
+        
+        if([keys containsObject:@"description"]) {
+            description = [options objectForKey:@"description"];
+        }
+        if([keys containsObject:@"title"]) {
+            title = [options objectForKey:@"title"];
+        }
     }
-    // TouchID is not supported
-    else {
-        callback(@[RCTMakeError(@"", nil, nil)]);
+    
+    if(description != nil) {
+        LAContext *context = [[LAContext alloc] init];
+        context.localizedFallbackTitle = title;
+        NSError *error;
+        // TouchID is supported
+        if ([context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&error]) {
+            [context evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics
+                    localizedReason:description
+                              reply:^(BOOL success, NSError *error) {
+                                  //Authenticate failed
+                                  if(error) {
+                                      reject([NSString stringWithFormat:@"%ld", error.code], @"", nil);
+                                  }
+                                  else {
+                                      resolve(@[[NSNull null]]);
+                                  }
+                              }];
+        }
+        // TouchID is not supported
+        else {
+            reject(@"", @"", nil);
+        }
     }
 }
 
-RCT_EXPORT_METHOD(isSupported: (RCTResponseSenderBlock)callback)
+RCT_EXPORT_METHOD(isSupported:(RCTPromiseResolveBlock)resolve
+                  rejecter:(RCTPromiseRejectBlock)reject)
 {
     LAContext *context = [[LAContext alloc] init];
     NSError *error;
     // TouchID is supported
     if ([context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&error]) {
-        callback(@[[NSNull null]]);
-        // TouchID is not supported
+        resolve(@[[NSNull null]]);
     }
     else {
-        callback(@[RCTMakeError(@"", nil, nil)]);
-        return;
+        // TouchID is not supported
+        reject(@"", @"", nil);
     }
 }
 
