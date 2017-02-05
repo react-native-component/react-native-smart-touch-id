@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/react-native-component/react-native-smart-touch-id/issues"
   },
-  "homepage": "https://github.com/react-native-component/react-native-smart-touch-id#readme"
+  "homepage": "https://github.com/react-native-component/react-native-smart-touch-id#readme",
+  "peerDependencies": {
+    "react-native": ">=0.40.0"
+  }
 }
