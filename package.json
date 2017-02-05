@@ -1,6 +1,6 @@
 {
   "name": "react-native-smart-touch-id",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Smart authentication with the native Touch ID popup for React Native app",
   "main": "TouchId.js",
   "scripts": {
