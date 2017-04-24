@@ -47,6 +47,7 @@ import {
   View,
   Text,
   Alert,
+  StyleSheet
 } from 'react-native'
 
 import TouchId from 'react-native-smart-touch-id'
